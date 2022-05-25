@@ -24,3 +24,9 @@ class Solution:
             else:
                 hashmap[key] += [st]
         return hashmap.values()
+
+        # Solution 3 defaultdict to collect groups
+        groups = collections.defaultdict(list)
+        for s in strs:
+            groups[tuple(sorted(s))].append(s)
+        return map(sorted, groups.values())
