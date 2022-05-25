@@ -14,3 +14,13 @@ class Solution:
                 count[ord(c) - ord("a")] += 1
             res[tuple(count)].append(s)
         return res.values()
+
+        # Solution 2 hashmap
+        hashmap = {}
+        for st in strs:
+            key = ''.join(sorted(st))
+            if key not in hashmap:
+                hashmap[key] = [st]
+            else:
+                hashmap[key] += [st]
+        return hashmap.values()
